@@ -167,6 +167,7 @@ export const Contact = () => {
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
+            title="STATYK LT biuro lokacija - Dunojaus g. 16, Vilnius"
           />
         </motion.div>
       </div>
