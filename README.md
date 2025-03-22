@@ -1,17 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# STATYK LT
+
+Modern construction company website built with Next.js 14, TypeScript, Tailwind CSS, and Framer Motion.
+
+## Features
+
+- Modern, responsive design
+- Smooth animations and transitions
+- Interactive service showcase
+- Project portfolio
+- Contact form
+- Mobile-friendly navigation
+
+## Tech Stack
+
+- Next.js 14
+- TypeScript
+- Tailwind CSS
+- Framer Motion
+- ESLint
+- Prettier
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm start
+```
+
+## Project Structure
+
+```
+statyklt/
+├── src/
+│   ├── app/
+│   │   ├── components/
+│   │   │   ├── client/
+│   │   │   └── ...
+│   │   ├── layout.tsx
+│   │   └── page.tsx
+│   └── ...
+├── public/
+│   └── images/
+└── ...
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
