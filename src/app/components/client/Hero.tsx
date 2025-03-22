@@ -40,8 +40,8 @@ export const Hero = () => {
       })
     }
 
-    // Start the animation after a delay
-    const timer = setTimeout(startSliderAnimation, 1000)
+    // Delay slider animation until after main content has loaded
+    const timer = setTimeout(startSliderAnimation, 1500)
     
     return () => clearTimeout(timer)
   }, [controls])
@@ -56,7 +56,9 @@ export const Hero = () => {
           fill
           className="object-cover"
           priority
-          quality={100}
+          loading="eager"
+          fetchPriority="high"
+          quality={90}
         />
         <div className="absolute inset-0 bg-black/30" />
       </div>
@@ -67,23 +69,23 @@ export const Hero = () => {
           <div className="relative w-fit">
             <motion.div 
               className="absolute inset-0 bg-black/10 backdrop-blur-sm"
-              initial={{ opacity: 0 }}
+              initial={{ opacity: 0.9 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.3 }}
             />
             <motion.div 
               className="relative flex p-4 md:p-6"
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0.99, y: 0 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.3 }}
             >
               <div className="w-0.5 h-28 bg-white/20 mr-4 md:mr-8" />
               <div>
                 <motion.h1 
                   className="text-[2rem] leading-[1.1] md:text-[2.5rem] lg:text-[3rem] xl:text-[3.5rem] 2xl:text-[4rem] mb-3 md:mb-4 font-light"
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0.99, y: 0 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.2 }}
+                  transition={{ duration: 0.3 }}
                 >
                   Profesionalios
                   <br />
@@ -92,9 +94,9 @@ export const Hero = () => {
 
                 <motion.p 
                   className="text-base md:text-lg lg:text-xl xl:text-2xl text-gray-200"
-                  initial={{ opacity: 0 }}
+                  initial={{ opacity: 0.9 }}
                   animate={{ opacity: 1 }}
-                  transition={{ duration: 0.8, delay: 0.4 }}
+                  transition={{ duration: 0.3 }}
                 >
                   Įmonė, kuri stengiasi pateisinti visus Jūsų poreikius
                 </motion.p>
@@ -107,9 +109,9 @@ export const Hero = () => {
       {/* Partners Slider */}
       <motion.div 
         className="absolute bottom-0 right-0 z-10 w-full md:w-1/2 bg-black/10 backdrop-blur-sm"
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0.9, y: 0 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.6 }}
+        transition={{ duration: 0.3, delay: 0.8 }}
       >
         <div className="flex items-center h-24">
           <motion.div 
