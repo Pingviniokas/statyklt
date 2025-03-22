@@ -69,23 +69,23 @@ export const Hero = () => {
           <div className="relative w-fit">
             <motion.div 
               className="absolute inset-0 bg-black/10 backdrop-blur-sm"
-              initial={{ opacity: 0.9 }}
+              initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.4 }}
             />
             <motion.div 
               className="relative flex p-4 md:p-6"
-              initial={{ opacity: 0.99, y: 0 }}
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.5 }}
             >
               <div className="w-0.5 h-28 bg-white/20 mr-4 md:mr-8" />
               <div>
                 <motion.h1 
                   className="text-[2rem] leading-[1.1] md:text-[2.5rem] lg:text-[3rem] xl:text-[3.5rem] 2xl:text-[4rem] mb-3 md:mb-4 font-light"
-                  initial={{ opacity: 0.99, y: 0 }}
+                  initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3 }}
+                  transition={{ duration: 0.5 }}
                 >
                   Profesionalios
                   <br />
@@ -94,9 +94,9 @@ export const Hero = () => {
 
                 <motion.p 
                   className="text-base md:text-lg lg:text-xl xl:text-2xl text-gray-200"
-                  initial={{ opacity: 0.9 }}
+                  initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  transition={{ duration: 0.3 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
                 >
                   Įmonė, kuri stengiasi pateisinti visus Jūsų poreikius
                 </motion.p>
