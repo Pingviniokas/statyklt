@@ -17,8 +17,13 @@ const partners = [
 export const Hero = () => {
   const sliderRef = useRef<HTMLDivElement>(null)
   const controls = useAnimationControls()
+  const [initialRender, setInitialRender] = useState(true)
 
   useEffect(() => {
+    // Set initial render to false after component mounts
+    // This ensures content is visible during SSR/initial HTML
+    setInitialRender(false)
+    
     if (!sliderRef.current) return
     
     const startSliderAnimation = () => {
@@ -67,41 +72,63 @@ export const Hero = () => {
       <div className="relative z-10 px-4 md:px-12 w-full">
         <div className="text-white max-w-[90vw] md:max-w-[75vw] lg:max-w-[65vw] xl:max-w-[55vw] 2xl:max-w-[50vw] md:ml-12">
           <div className="relative w-fit">
-            <motion.div 
-              className="absolute inset-0 bg-black/10 backdrop-blur-sm"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.4 }}
-            />
-            <motion.div 
-              className="relative flex p-4 md:p-6"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <div className="w-0.5 h-28 bg-white/20 mr-4 md:mr-8" />
-              <div>
-                <motion.h1 
-                  className="text-[2rem] leading-[1.1] md:text-[2.5rem] lg:text-[3rem] xl:text-[3.5rem] 2xl:text-[4rem] mb-3 md:mb-4 font-light"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5 }}
-                >
-                  Profesionalios
-                  <br />
-                  <span className="whitespace-nowrap">statybų paslaugos</span>
-                </motion.h1>
-
-                <motion.p 
-                  className="text-base md:text-lg lg:text-xl xl:text-2xl text-gray-200"
+            {/* Display a static div during initial render for fast LCP */}
+            {initialRender ? (
+              <>
+                <div className="absolute inset-0 bg-black/10 backdrop-blur-sm" />
+                <div className="relative flex p-4 md:p-6">
+                  <div className="w-0.5 h-28 bg-white/20 mr-4 md:mr-8" />
+                  <div>
+                    <h1 className="text-[2rem] leading-[1.1] md:text-[2.5rem] lg:text-[3rem] xl:text-[3.5rem] 2xl:text-[4rem] mb-3 md:mb-4 font-light">
+                      Profesionalios
+                      <br />
+                      <span className="whitespace-nowrap">statybų paslaugos</span>
+                    </h1>
+                    <p className="text-base md:text-lg lg:text-xl xl:text-2xl text-gray-200">
+                      Įmonė, kuri stengiasi pateisinti visus Jūsų poreikius
+                    </p>
+                  </div>
+                </div>
+              </>
+            ) : (
+              <>
+                <motion.div 
+                  className="absolute inset-0 bg-black/10 backdrop-blur-sm"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
+                  transition={{ duration: 0.8 }}
+                />
+                <motion.div 
+                  className="relative flex p-4 md:p-6"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8 }}
                 >
-                  Įmonė, kuri stengiasi pateisinti visus Jūsų poreikius
-                </motion.p>
-              </div>
-            </motion.div>
+                  <div className="w-0.5 h-28 bg-white/20 mr-4 md:mr-8" />
+                  <div>
+                    <motion.h1 
+                      className="text-[2rem] leading-[1.1] md:text-[2.5rem] lg:text-[3rem] xl:text-[3.5rem] 2xl:text-[4rem] mb-3 md:mb-4 font-light"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.8, delay: 0.2 }}
+                    >
+                      Profesionalios
+                      <br />
+                      <span className="whitespace-nowrap">statybų paslaugos</span>
+                    </motion.h1>
+
+                    <motion.p 
+                      className="text-base md:text-lg lg:text-xl xl:text-2xl text-gray-200"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.8, delay: 0.4 }}
+                    >
+                      Įmonė, kuri stengiasi pateisinti visus Jūsų poreikius
+                    </motion.p>
+                  </div>
+                </motion.div>
+              </>
+            )}
           </div>
         </div>
       </div>
@@ -109,9 +136,9 @@ export const Hero = () => {
       {/* Partners Slider */}
       <motion.div 
         className="absolute bottom-0 right-0 z-10 w-full md:w-1/2 bg-black/10 backdrop-blur-sm"
-        initial={{ opacity: 0.9, y: 0 }}
+        initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.3, delay: 0.8 }}
+        transition={{ duration: 0.8, delay: 0.6 }}
       >
         <div className="flex items-center h-24">
           <motion.div 
