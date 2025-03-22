@@ -64,9 +64,9 @@ export const Hero = () => {
       {/* Content */}
       <div className="relative z-10 px-4 md:px-12 w-full">
         <div className="text-white max-w-[90vw] md:max-w-[75vw] lg:max-w-[65vw] xl:max-w-[55vw] 2xl:max-w-[50vw] md:ml-12">
-          <div className="relative">
+          <div className="relative w-fit">
             <motion.div 
-              className="absolute inset-0 bg-black/10 backdrop-blur-sm rounded-lg"
+              className="absolute inset-0 bg-black/10 backdrop-blur-sm"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8 }}
